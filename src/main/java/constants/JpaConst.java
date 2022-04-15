@@ -23,10 +23,10 @@ public interface JpaConst {
 	String EMP_COL_UPDATED_AT = "updated_at";	//更新日時
 	String EMP_COL_DELETE_FLAG = "delete_flag";	//削除フラグ
 
-	int ROLE_ADMIN = 1;
-	int ROLE_GENERAL = 0;
-	int EMP_DEL_TRUE = 1;
-	int EMP_DEL_FALSE = 0;
+	int ROLE_ADMIN = 1;		//管理者権限ON(管理者）
+	int ROLE_GENERAL = 0;	//管理者権限OFF(一般）
+	int EMP_DEL_TRUE = 1;	//削除フラグON(削除済み）
+	int EMP_DEL_FALSE = 0;	//削除フラグOFF(現役）
 
 	//日報テーブル
 	String TABLE_REP = "reports";				//テーブル名
@@ -40,8 +40,8 @@ public interface JpaConst {
 	String REP_COL_UPDATED_AT = "updated_at";	//更新日時
 
 	//Entity名
-	String ENTITY_EMP = "employee";
-	String ENTITY_REP = "report";
+	String ENTITY_EMP = "employee";	//従業員
+	String ENTITY_REP = "report";	//日報
 
 	//JPQL内パラメータ
 	String JPQL_PARM_CODE = "code";			//社員番号
@@ -57,7 +57,7 @@ public interface JpaConst {
 	String Q_EMP_COUNT_DEF = "SELECT COUNT(e) FROM Employee AS e";
 	//社員番号とハッシュ化済みパスワードを条件に未削除の従業員を取得する
 	String Q_EMP_GET_BY_CODE_AND_PASS = ENTITY_EMP + ".getByCodeAndPass";
-	String Q_EMP_GET_BY_CODE_AND_PASS_DEF = "SELECT e FROM Employee AS e WHERE e.deleteFlag = 0 AND e.code = :" + JPQL_PARM_CODE + "AND e.password = :" + JPQL_PARM_PASSWORD;
+	String Q_EMP_GET_BY_CODE_AND_PASS_DEF = "SELECT e FROM Employee AS e WHERE e.deleteFlag = 0 AND e.code = :" + JPQL_PARM_CODE + " AND e.password = :" + JPQL_PARM_PASSWORD;
 	//指定した社員番号を保持する従業員の件数を取得する
 	String Q_EMP_COUNT_RESISTERED_BY_CODE = ENTITY_EMP + ".countRegisteredByCode";
 	String Q_EMP_COUNT_RESISTERED_BY_CODE_DEF = "SELECT COUNT(e) FROM Employee AS e WHERE e.code = :" + JPQL_PARM_CODE;

@@ -48,10 +48,10 @@ public class EmployeeValidator {
 
 		if(codeDuplicateCheckFlag) {
 			//社員番号の重複チェックを実施
-			long employeeCount = isDuplicateEmployee(service, code);
+			long employeesCount = isDuplicateEmployee(service, code);
 
 			//同一社員番号が既に登録されている場合はエラーメッセージを返却
-			if(employeeCount > 0) return MessageConst.E_EMP_CODE_EXIST.getMessage();
+			if(employeesCount > 0) return MessageConst.E_EMP_CODE_EXIST.getMessage();
 		}
 		//エラーがない場合は空文字を返却
 		return "";
