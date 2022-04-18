@@ -188,6 +188,7 @@ public abstract class ActionBase {
 	 * @param key パラメータ名
 	 * @return パラメータの値
 	 */
+	@SuppressWarnings("unchecked")
 	protected <R> R getSessionScope(AttributeConst key) {
 		return (R) request.getSession().getAttribute(key.getValue());
 	}
